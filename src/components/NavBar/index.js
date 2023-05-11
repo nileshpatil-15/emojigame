@@ -1,22 +1,28 @@
-/* eslint-disable prettier/prettier */
-// Write your code here.
-
 import './index.css'
 
-const NavBar = (props) => {
-    const { value } = props
-    return (
-        <div className='nav-container'>
-            <div className='nav-logo-container'>
-                <img className='nav-img' alt='nav-img' src='https://assets.ccbp.in/frontend/react-js/game-logo-img.png' />
-                <p className='nav-logo-name'>Emoji Game</p>
-            </div>
-            <div className='score-topscore-container'>
-                <p className='score'>score:0</p>
-                <p className='topscore'>topscore:0</p>
+const NavBar = props => {
+  const {currentScore, isGameInProgress, topScore} = props
 
-            </div>
+  return (
+    <nav className="nav-bar-container">
+      <div className="title-with-score-container">
+        <div className="logo-and-title-container">
+          <img
+            className="emoji-logo"
+            src="https://assets.ccbp.in/frontend/react-js/game-logo-img.png"
+            alt="emoji logo"
+          />
+          <h1 className="title">Emoji Game</h1>
         </div>
-    )
+        {isGameInProgress && (
+          <div className="scores-container">
+            <p className="score">Score: {currentScore}</p>
+            <p className="score">Top Score: {topScore}</p>
+          </div>
+        )}
+      </div>
+    </nav>
+  )
 }
-export default NavBar 
+
+export default NavBar

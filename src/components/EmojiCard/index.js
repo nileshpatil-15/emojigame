@@ -1,21 +1,20 @@
-/* eslint-disable prettier/prettier */
-// Write your code here.
-import './index.css'   
+import './index.css'
 
-const EmojiCard =(props)=>{
-    const {data,clickedEmoji}=props
-    const {emojiUrl,id}=data
+const EmojiCard = props => {
+  const {emojiDetails, clickEmoji} = props
+  const {id, emojiName, emojiUrl} = emojiDetails
 
-    const changeEmoji=()=>{
-        clickedEmoji(id)
-    }
+  const onClickEmojiCard = () => {
+    clickEmoji(id)
+  }
 
-    return(
-      <li className='emoji-item'>
-         <button className='btn' type='button' onClick={changeEmoji}>
-            <img className='emoji' alt='emoji' src={emojiUrl}/>
-         </button> 
-      </li>                
-    )
+  return (
+    <li className="emoji-item">
+      <button type="button" className="emoji-btn" onClick={onClickEmojiCard}>
+        <img className="emoji-icon" src={emojiUrl} alt={emojiName} />
+      </button>
+    </li>
+  )
 }
+
 export default EmojiCard
